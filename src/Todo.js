@@ -4,17 +4,22 @@ import './Todo.css';
 class Todo extends Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
+        this.handleRemove = this.handleRemove.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
-    handleClick(e) {
+    handleRemove(e) {
         this.props.removeTodo(this.props.id);
+    }
+    handleEdit(e) {
+        this.props.editTodoForm(this.props.id);
     }
 
     render() {
         return (
             <div className="Todo">
                 <p>{this.props.text}</p>
-                <button onClick={this.handleClick}>X</button>
+                <button onClick={this.handleEdit}>EDIT</button>
+                <button onClick={this.handleRemove}>X</button>
             </div>
         )
     }
